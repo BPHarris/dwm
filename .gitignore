@@ -1,0 +1,12 @@
+# bins
+dwm
+*.o
+*.out
+
+# patches
+patches
+
+# detritus
+*.orig
+*.rej
+
