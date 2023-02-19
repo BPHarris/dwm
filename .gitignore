@@ -1,5 +1,6 @@
 # bins
 dwm
+dwm-msg
 *.o
 *.out
 
