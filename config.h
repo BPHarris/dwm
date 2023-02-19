@@ -5,6 +5,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;        /* 0 means allow mouse wheel click */
@@ -65,18 +66,19 @@ static const Rule rules[] = {
 	/* Note
 	 * St with Xresources patch is 'St' otherwise it is 'st'
 	 */
-	/* class      instance    title       tags mask     isfloating   isfreesize   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
-	{ "st",       NULL,       NULL,       0,    	    0,           0,           -1 },
-	{ "St",       NULL,       NULL,       0,            0,           0,           -1 },
-	{ "Alacritty",NULL,       NULL,       0,    	    0,           0,           -1 },
-	{ NULL,       "nextcloud",NULL,       0,            1,           1,           -1 },
+	/* class      instance    title       tags mask     isfloating   isfreesize   isterminal   noswallow    monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           1,           0,           0,           -1 },
+	{ "Surf",     NULL,       NULL,       0,            0,           0,           0,           -1,          -1 },
+	{ "st",       NULL,       NULL,       0,    	    0,           0,           1,           0,           -1 },
+	{ "St",       NULL,       NULL,       0,            0,           0,           1,           0,           -1 },
+	{ "Alacritty",NULL,       NULL,       0,    	    0,           0,           1,           0,           -1 },
+	{ NULL,       "nextcloud",NULL,       0,            1,           1,           0,           0,           -1 },
+	{ NULL,       NULL,   "Event Tester", 0,            0,           0,           0,           1,           -1 },
 	/* steam */
-	{ "Steam",    "Steam", "Friends List",0,         1,           1,           -1 },
+	{ "Steam",    "Steam", "Friends List",0,            1,           1,           0,           0,           -1 },
 	/* scratchpads */
-	{ NULL,       "sp_term",  NULL,       SPTAG(0),     1,           1,           -1 },
-	{ NULL,       "keepassxc",NULL,       SPTAG(1),     1,           1,           -1 },
+	{ NULL,       "sp_term",  NULL,       SPTAG(0),     1,           1,           0,           0,           -1 },
+	{ NULL,       "keepassxc",NULL,       SPTAG(1),     1,           1,           0,           0,           -1 },
 };
 
 /* layout(s) */
