@@ -8,6 +8,10 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
+static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
+static const char *alttrayname      = "tray";    /* Polybar tray instance name */
+static const char *altbarcmd        = "~/.config/dwm/startbar"; /* Alternate bar launch command */
 static const int focusonwheel       = 0;        /* 0 means allow mouse wheel click */
 static const int decorhints         = 1;        /* 1 means respect decoration hints */
 static const char *fonts[]          = { "FiraCode Nerd Font Mono:size=14" };
