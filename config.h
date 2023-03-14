@@ -70,20 +70,27 @@ static const Rule rules[] = {
 	/* Note
 	 * St with Xresources patch is 'St' otherwise it is 'st'
 	 */
-	/* class      instance    title       tags mask     isfloating   isfreesize   isterminal   noswallow    monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           1,           0,           0,           -1 },
-	{ "Surf",     NULL,       NULL,       0,            0,           0,           0,           -1,          -1 },
-	{ "Emacs",    NULL,       NULL,       0,            0,           0,           0,           -1,          -1 },
-	{ "st",       NULL,       NULL,       0,    	    0,           0,           1,           0,           -1 },
-	{ "St",       NULL,       NULL,       0,            0,           0,           1,           0,           -1 },
-	{ "Alacritty",NULL,       NULL,       0,    	    0,           0,           1,           0,           -1 },
-	{ NULL,       "nextcloud",NULL,       0,            1,           1,           0,           0,           -1 },
-	{ NULL,       NULL,   "Event Tester", 0,            0,           0,           0,           1,           -1 },
+	/* class           instance     title           tags mask   isfloating  isfreesize  isterminal  noswallow  monitor */
+	{ "Gimp",          NULL,        NULL,           0,          1,          1,          0,          0,         -1 },
+	{ "Surf",          NULL,        NULL,           0,          0,          0,          0,          -1,        -1 },
+	{ "Emacs",         NULL,        NULL,           0,          0,          0,          0,          -1,        -1 },
+	{ "st",            NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
+	{ "St",            NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
+	{ "Alacritty",     NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
+	{ NULL,            "nextcloud", NULL,           0,          1,          1,          0,          0,         -1 },
+	{ NULL,            NULL,        "Event Tester", 0,          0,          0,          0,          1,         -1 },
+	/* mpv
+	 *	swallow from terminal
+	 *	floating pop-up from file manager
+	 * requires `alias mpv="mpv --x11-name='swallow-mpv'"`
+	 */
+	{ "gl",            "mpv",       NULL,           0,          1,          1,          0,          0,         -1 },
+	{ "swallow-mpv",   "mpv",       NULL,           0,          0,          0,          0,          -1,        -1 },
 	/* steam */
-	{ "Steam",    "Steam", "Friends List",0,            1,           1,           0,           0,           -1 },
+	{ NULL,            NULL,        "Friends List", 0,          0,          0,          0,          0,         -1 },
 	/* scratchpads */
-	{ NULL,       "sp_term",  NULL,       SPTAG(0),     1,           1,           0,           0,           -1 },
-	{ NULL,       "keepassxc",NULL,       SPTAG(1),     1,           1,           0,           0,           -1 },
+	{ NULL,            "sp_term",   NULL,           SPTAG(0),   1,          1,          0,          0,         -1 },
+	{ NULL,            "keepassxc", NULL,           SPTAG(1),   1,          1,          0,          0,         -1 },
 };
 
 /* layout(s) */
