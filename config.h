@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -13,15 +13,15 @@ static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
 static const char *altbarcmd        = "~/.config/dwm/startbar"; /* Alternate bar launch command */
 static const int focusonwheel       = 0;        /* 0 means allow mouse wheel click */
-static const int decorhints         = 1;        /* 1 means respect decoration hints */
-static const char *fonts[]          = { "FiraCode Nerd Font Mono:size=14" };
-static const char dmenufont[]       = "FiraCode Nerd Font Mono:size=14";
+static const int decorhints         = 0;        /* 1 means respect decoration hints */
+static const char *fonts[]          = { "FiraCode Nerd Font Mono:size=13" };
+static const char dmenufont[]       = "FiraCode Nerd Font Mono:size=13";
 
 
 /* colour */
 static const char c_black[]       = "#080808";
 static const char c_dark_grey[]   = "#161616";
-static const char c_grey[]		  = "#242424";
+static const char c_grey[]        = "#242424";
 static const char c_light_grey[]  = "#323232";
 
 static const char c_off_white[]   = "#e0e0e0";
@@ -44,8 +44,8 @@ static const char c_flat_purple[] = "#972066";
 
 static const char *colors[][4]      = {
 	/*               fg             bg             border         float          */
-	[SchemeNorm] = { c_white,       c_dark_grey,   c_light_grey,  c_light_grey   },
-	[SchemeSel]  = { c_white,       c_flat_green,  c_flat_green,  c_flat_green   },
+	[SchemeNorm] = { c_white,       c_dark_grey,   c_dark_grey,   c_dark_grey    },
+	[SchemeSel]  = { c_white,       c_flat_green,  c_off_white,   c_off_white    },
 	[SchemeUrg]  = { c_white,       c_flat_green,  c_flat_red,    c_flat_red     },
 };
 
