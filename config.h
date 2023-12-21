@@ -1,4 +1,6 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -77,7 +79,7 @@ static const Rule rules[] = {
 	{ "st",            NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
 	{ "St",            NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
 	{ "Alacritty",     NULL,        NULL,           0,          0,          0,          1,          0,         -1 },
-	{ NULL,            "nextcloud", NULL,           0,          1,          1,          0,          0,         -1 },
+	{ "Nextcloud",     NULL,        NULL,           0,          1,          1,          0,          0,         -1 },
 	{ NULL,            NULL,        "Event Tester", 0,          0,          0,          0,          1,         -1 },
 	/* mpv
 	 *	swallow from terminal
@@ -88,6 +90,9 @@ static const Rule rules[] = {
 	{ "swallow-mpv",   "mpv",       NULL,           0,          0,          0,          0,          -1,        -1 },
 	/* steam */
 	{ NULL,            NULL,        "Friends List", 0,          0,          0,          0,          0,         -1 },
+	{ NULL,            NULL,        "BodySlide",    0,          1,          0,          0,          0,         -1 },
+	/* origin -- required to work */
+	{ NULL,            "origin.exe",NULL,           0,          1,          1,          0,          0,         -1 },
 	/* scratchpads */
 	{ NULL,            "sp_term",   NULL,           SPTAG(0),   1,          1,          0,          0,         -1 },
 	{ NULL,            "keepassxc", NULL,           SPTAG(1),   1,          1,          0,          0,         -1 },
@@ -127,12 +132,14 @@ static const char *druncmd[] = { "rofi", "-show", "drun", NULL };
 static const char *runcmd[] = { "rofi", "-show", "run", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", c_dark_grey, "-nf", c_white, "-sb", c_flat_green, "-sf", c_off_white, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = druncmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = runcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -167,6 +174,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 	{ MODKEY,                       XK_bracketleft,  togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_bracketright, togglescratch,  {.ui = 1 } },
+	/* XF86 Controls */
+	{ 0,  XF86XK_AudioMute,         spawn, SHCMD("xf86-pulseaudio toggle-mute") },
+	{ 0,  XF86XK_AudioRaiseVolume,  spawn, SHCMD("xf86-pulseaudio volume-up") },
+	{ 0,  XF86XK_AudioLowerVolume,  spawn, SHCMD("xf86-pulseaudio volume-down") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
